@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { NextUIProvider } from "@nextui-org/system";
+
 import "./globals.css";
+import Header from "@/app/components/Header/Header";
+import Footer from "@/app/components/Footer";
+
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,9 +31,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} dark antialiased min-h-screen`}
       >
-        {children}
+      <NextUIProvider>
+          <div className="flex flex-col">
+            <Header />
+              <div className="flex-1 h-[calc(100vh-80px)]">
+                {children}
+              </div>
+            <Footer />
+          </div>
+      </NextUIProvider>
       </body>
     </html>
   );
