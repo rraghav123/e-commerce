@@ -4,7 +4,7 @@ import { getCategories } from "@/app/apis/fetchData";
 import Category from "@/app/components/Category";
 import { publish } from "@/app/utils/events";
 
-import {EVENTS} from "@/enums/EVENTS";
+import { EVENTS } from "@/enums/EVENTS";
 
 function SideBar() {
     const categories = useMemo(() => getCategories(), []);
@@ -17,6 +17,7 @@ function SideBar() {
 
     return (
         <div className="p-2">
+            <h2 className="text-xl p-5">Categories</h2>
             {categories.map(category =>
                 <Category
                     name={category.name}

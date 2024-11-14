@@ -1,5 +1,9 @@
+interface category  {
+    name: string,
+    id: number,
+}
 export type Product = {
-    category: object,
+    category: category,
     _id: string,
     id: string,
     title: string,

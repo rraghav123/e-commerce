@@ -10,14 +10,14 @@ type Category = {
 
 export default function Category({ id, name, active, onSelect }: Category): React.ReactElement {
     return (
-        <div
-            className={clsx("cursor-pointer p-4", {
+        <button
+            className={clsx("cursor-pointer p-4 flex flex-col w-full", {
                 "border-l-4 border-indigo-800 font-bold": active,
                 "ml-1": !active,
             })}
             onClick={() => onSelect(id)}
         >
-            <p>{name}</p>
-        </div>
+            {name}
+        </button>
     )
 }
